@@ -1,3 +1,7 @@
+# Assets
+src/image/*
+!src/image/.gitkeep
+
 # Logs
 logs
 *.log
