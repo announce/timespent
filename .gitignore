@@ -1,6 +1,12 @@
 # Assets
-src/image/*
-!src/image/.gitkeep
+src/crx/image/*
+!src/crx/image/.gitkeep
+
+# Bundle product
+dist/*
+!dist/.gitkeep
+tmp/*
+!tmp/.gitkeep
 
 # Logs
 logs

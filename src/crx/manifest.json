@@ -7,7 +7,7 @@
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
-    "image/icon_128.png"
+    "image/*.png"
   ],
   "permissions": [
     "contextMenus",
