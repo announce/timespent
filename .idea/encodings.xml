@@ -12,8 +12,8 @@
     <file url="file://$PROJECT_DIR$/src/App.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/content.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/manifest.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/crx/popup.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/popup.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/crx/style.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/js/actions/index.js" charset="UTF-8" />

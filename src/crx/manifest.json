@@ -7,6 +7,7 @@
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
+    "inject.html",
     "image/*.png"
   ],
   "permissions": [
@@ -22,11 +23,11 @@
   "content_scripts": [
     {
       "matches": ["*://*.confluence.atlassian.com/*"],
-      "js": ["content.min.js"]
+      "js": ["content.js"]
     }
   ],
   "background": {
-    "scripts": ["background.min.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "manifest_version": 2
