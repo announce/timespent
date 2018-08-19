@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "[![Build Status](https://travis-ci.org/announce/c18.svg?branch=master)](https://travis-ci.org/announce/c18)",
   "scripts": {
-    "test": "npm run build",
+    "test": "npm run lint",
     "lint": "npm-run-all lint:**",
     "lint:js": "standard --fix",
+    "lint:css": "csslint src/**/*.css",
     "lint:shell": "docker run --rm -v $PWD:/mnt koalaman/shellcheck:v0.5.0 --exclude=SC1090 script/*.bash",
     "lint:md": "markdownlint README.md",
     "icon": "npm-run-all icon:**",
@@ -14,7 +15,12 @@
     "icon:32": "npm run im -- convert -size 32x32 -background '#0052CC' -fill white -gravity center label:c18 /app/icon_32.png",
     "icon:48": "npm run im -- convert -size 48x48 -background '#0052CC' -fill white -gravity center label:c18 /app/icon_48.png",
     "icon:128": "npm run im -- convert -size 128x128 -background '#0052CC' -fill white -gravity center label:c18 /app/icon_128.png",
-    "watch": "onchange  --delay 1000 '*.json' 'src/*' -- npm run bundle",
+    "watch": "npm-run-all --parallel watch:** pack",
+    "watch:js": "onchange  --delay 1000 '*.json' 'src/**/*.js' -- npm run lint:js",
+    "watch:css": "onchange  --delay 1000 'src/**/*.css' -- npm run lint:css",
+    "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm run lint:shell",
+    "watch:md": "onchange  --delay 1000 '*.md' -- npm run lint:md",
+    "pack": "webpack-dev-server --mode development --open",
     "build": "npm run bundle && npm run compress",
     "bundle": "npm run lint && npm-run-all generate:** && npm-run-all bundle:** && npm run minify ; ./notify $?",
     "bundle:gas": "babel src/gas -d dist/gas --presets=env",
@@ -25,18 +31,35 @@
     "minify:content": "uglifyjs --compress --mangle -o dist/content.min.js -- tmp/content.js",
     "compress": "zip -r dist.zip dist",
     "prestart": "npm install",
-    "start": "npm run build && npm run watch"
+    "start": "npm run watch"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.2.2",
+    "css-loader": "^1.0.0",
+    "csslint": "^1.0.5",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "markdownlint-cli": "^0.13.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "npm-run-all": "^4.1.3",
     "onchange": "^4.1.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "standard": "^11.0.1",
-    "uglify-js": "^3.4.7"
+    "uglify-js": "^3.4.7",
+    "uuid": "^3.3.2",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   },
   "standard": {
     "globals": [
@@ -55,12 +78,14 @@
         "babelify",
         {
           "presets": [
-            "env"
+            "env",
+            "react"
           ]
         }
       ]
     ]
   },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/announce/q11e.git"
