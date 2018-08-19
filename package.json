@@ -2,7 +2,6 @@
   "name": "c18",
   "version": "1.0.0",
   "description": "[![Build Status](https://travis-ci.org/announce/c18.svg?branch=master)](https://travis-ci.org/announce/c18)",
-  "main": "index.js",
   "scripts": {
     "test": "npm run build",
     "lint": "npm-run-all lint:**",
@@ -25,6 +24,7 @@
     "minify": "npm-run-all minify:**",
     "minify:content": "uglifyjs --compress --mangle -o dist/content.min.js -- tmp/content.js",
     "compress": "zip -r dist.zip dist",
+    "prestart": "npm install",
     "start": "npm run build && npm run watch"
   },
   "devDependencies": {
