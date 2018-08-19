@@ -6,7 +6,7 @@
  * @param w
  * @param chrome
  */
-const main = (w: Window, chrome: Object) => {
+const main = (w: Object, chrome: Object) => {
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log('w.getSelection():', w.getSelection())
     return sendResponse({
