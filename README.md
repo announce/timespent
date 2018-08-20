@@ -4,6 +4,8 @@
 
 ## Development
 
+1. Enable chrome://flags/#allow-insecure-localhost
+
 ```bash
 npm start
 ```

@@ -1,43 +1,17 @@
 // @flow
-const path = require('path')
-const crypto = require('crypto')
-const hash = crypto.createHash('sha256')
-const cjt = require('cjt')
-const doc = window.document
-const scriptName = 'com.atlassian.icac'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from '../../app/containers/Root';
+import './todoapp.css';
 
-const copy = (str, mimeType) => {
-  const fn = doc.oncopy
-  console.log('oncopy:', fn)
-  doc.oncopy = (event) => {
-    event.clipboardData.setData(mimeType, str)
-    event.preventDefault()
-  }
-  doc.execCommand('copy', false, null)
-  doc.oncopy = fn
-}
+chrome.storage.local.get('state', (obj) => {
+  const { state } = obj;
+  const initialState = JSON.parse(state || '{}');
 
-const convert = (text) => {
-  const messageId = hash.update(text).digest('hex')
-  const converted = cjt.convert(text)
-  const sec = Math.floor(Date.now() / 1000)
-  // console.log('text:', text)
-  copy(converted, 'text/plain')
-  notify(sec + messageId, 'Copied to clipboard', converted, 2000)
-}
+  const createStore = require('../../app/store/configureStore');
 
-const notify = (notificationId, message, data, duration) => {
-  chrome.notifications.create(notificationId, {
-    type: 'basic',
-    title: scriptName,
-    message: message,
-    contextMessage: data,
-    iconUrl: path.join('image', 'icon_128.png'),
-    eventTime: Date.now() + duration
-  })
-}
-
-module.exports = {
-  scriptID: scriptName,
-  convert: convert
-}
+  ReactDOM.render(
+    <Root store={createStore(initialState)} />,
+    document.querySelector('#root')
+  );
+});

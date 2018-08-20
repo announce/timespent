@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>iCAC</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    html, body {
+      background-color: rgba(0,0,0,0)
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<% const scripts = (process.env.NODE_ENV === 'development') ? [
+  'chrome-extension://lmhkpmbekcpmknklioeibfkpmmfibljd/js/redux-devtools-extension.js',
+  'http://localhost:3000/js/app.bundle.js'
+] : [
+  '/js/app.bundle.js'
+]; %>
+<% scripts.forEach((value) => { %>
+  <script src="<%= value %>"></script>
+<% }); %>
+</body>
+</html>

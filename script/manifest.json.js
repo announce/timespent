@@ -1,5 +1,8 @@
 const path = require('path')
-const manifest = require(path.resolve('src/crx/manifest.json'))
+const manifest = require(path.resolve(
+  'src',
+  'crx',
+  'manifest.json'))
 const localCors = [
   "default-src 'self';",
   "script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval';",

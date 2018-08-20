@@ -1,0 +1,15 @@
+<html>
+<head>
+  <!--
+  @TODO chrome-extension://lmhkpmbekcpmknklioeibfkpmmfibljd/js/redux-devtools-extension.js
+  -->
+  <% const scripts = (process.env.NODE_ENV === 'development') ? [
+    'http://localhost:3000/js/background.bundle.js'
+  ] : [
+    '/js/background.bundle.js'
+  ]; %>
+  <% scripts.forEach((value) => { %>
+    <script src="<%= value %>"></script>
+  <% }); %>
+</head>
+</html>

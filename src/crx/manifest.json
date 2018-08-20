@@ -1,9 +1,10 @@
 {
   "name": "iCAC",
   "version": "",
-  "description": "A Chrome app for CAC i18n.",
+  "description": "A Chrome Extension for CAC i18n.",
   "icons": {
     "16": "image/icon_16.png",
+    "48": "img/icon_48.png",
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
