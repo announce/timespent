@@ -1,0 +1,37 @@
+<script>
+  const CAC_DOMAIN = 'confluence.atlassian.com'
+  const $switch = $('#icac-language-switcher')
+  const url = new URL(window.location.href)
+  const initSelectedLanguage = () => {
+    if (url.host === 'ja.' + CAC_DOMAIN) {
+      $switch.val('ja-jp')
+    } else {
+      $switch.val('en-us')
+    }
+  }
+  window.__icac = window.__icac || {}
+  window.__icac.switchLanguage = () => {
+    switch ($switch.val()) {
+      case 'ja-jp':
+        if (url.host !== 'ja.' + CAC_DOMAIN) {
+          url.host = 'ja.' + CAC_DOMAIN
+          window.location = url.href
+        }
+        break
+      default:
+        if (url.host !== CAC_DOMAIN) {
+          url.host = CAC_DOMAIN
+          window.location = url.href
+        }
+        break
+    }
+  }
+  initSelectedLanguage()
+</script>
+<form style="padding:2em 0;">
+  <h4>Switch the language</h4>
+  <select id="icac-language-switcher" style="font-size:2em;border:1em;" onchange="window.__icac.switchLanguage(this)">
+    <option value="en-us">English</option>
+    <option value="ja-jp">Japanese</option>
+  </select>
+</form>

@@ -1,0 +1,23 @@
+<script>
+  window.__icac = window.__icac || {}
+  window.__icac.swapImage = (target) => {
+    let $t = $(target)
+    let s1 = $t.attr('data-src')
+    let s2 = $t.attr('src')
+    $t.attr('data-src', s2)
+    $t.attr('src', s1)
+  }
+</script>
+<div class="ask-a-question-panel">
+  <h4>This page is translated from English</h4>
+  <div>
+    <% satisfactionImages.forEach((dict) => { %>
+      <img
+        width="40em;" src="<%= dict.mono %>" data-src="<%= dict.color %>"
+        onmouseover="window.__icac.swapImage(this)"
+        onmouseout="window.__icac.swapImage(this)"
+      >
+    <% }); %>
+  </div>
+  <p>Let us know your satisfaction on translation!</p>
+</div>
