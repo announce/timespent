@@ -30,3 +30,7 @@ npm run build
   * [Apps Script API](https://developers.google.com/apps-script/api/how-tos/execute)
 * ImageMagick
   * [Text Handling \- IM v6](http://www.imagemagick.org/Usage/text/#label_bestfit)
+
+## TODO
+
+* [Make background\-page visible in Google Chrome extension \- Stack Overflow](https://stackoverflow.com/questions/9658418/make-background-page-visible-in-google-chrome-extension)

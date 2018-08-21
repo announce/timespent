@@ -1,6 +1,5 @@
 # Assets
-src/crx/image/*
-!src/crx/image/.gitkeep
+src/crx/image/base64.json
 
 # Bundle product
 dist/*
