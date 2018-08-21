@@ -23,4 +23,8 @@ $(() => {
   $('.page-sidebars')
     .prepend(createLanguageSwitcherElement())
     .append(createSatisfactionElement())
+  // @TODO
+  const url = new URL(chrome.extension.getURL('form.html'))
+  url.searchParams.set('aaa', 1)
+  window.open(url, 'SingleSecondaryWindowName', 'resizable,scrollbars')
 })

@@ -8,6 +8,7 @@
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
+    "form.html",
     "image/*.png",
     "image/*.json"
   ],
@@ -19,9 +20,6 @@
     "tabs",
     "activeTab"
   ],
-  "browser_action": {
-    "default_popup": "popup.html"
-  },
   "content_scripts": [
     {
       "matches": ["*://*.confluence.atlassian.com/*"],
