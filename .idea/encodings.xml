@@ -13,7 +13,7 @@
     <file url="file://$PROJECT_DIR$/script/patch-webpack.bash" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/app.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/app.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/crx/background.html.ejs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/crx/background.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/background.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/content.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/inject.html.ejs" charset="UTF-8" />
