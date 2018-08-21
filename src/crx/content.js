@@ -48,14 +48,9 @@ const createSatisfactionElement = () => {
  * @param chrome
  */
 const main = (w: Object, chrome: Object) => {
-  $('.page-sidebars').prepend(createLanguageSwitcherElement())
-  $('.page-sidebars').append(createSatisfactionElement())
-  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('w.getSelection():', w.getSelection())
-    return sendResponse({
-      text: w.getSelection().toString()
-    })
-  })
+  $('.page-sidebars')
+    .prepend(createLanguageSwitcherElement())
+    .append(createSatisfactionElement())
 }
 
 $(() => {
