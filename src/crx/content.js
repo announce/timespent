@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const $ = require('jquery')
 const ejs = require('ejs')
+const uuid = require('uuid/v4')
 const satisfaction = require('./image/base64')
 const app = require('./app')
 
@@ -13,6 +14,7 @@ const createLanguageSwitcherElement = () => {
 
 const createSatisfactionElement = () => {
   const url = new URL(chrome.extension.getURL('form.html'))
+  url.searchParams.set('uuid', uuid())
   url.searchParams.set('url', encodeURIComponent(window.location.href))
   const sat = satisfaction.map((value, index) => {
     url.searchParams.set('score', 5 - index)
