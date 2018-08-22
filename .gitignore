@@ -1,3 +1,14 @@
+# Assets
+src/crx/image/base64.json
+
+# Bundle product
+dist/*
+!dist/.gitkeep
+tmp/*
+!tmp/.gitkeep
+var/*
+!var/.gitkeep
+
 # Logs
 logs
 *.log
