@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "[![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)",
   "scripts": {
-    "test": "npm-run-all lint bundle",
+    "test": "npm-run-all clean lint bundle",
     "lint": "npm-run-all lint:**",
     "lint:js": "standard --fix",
     "lint:css": "csslint src/**/*.css",
