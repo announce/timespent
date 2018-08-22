@@ -33,4 +33,4 @@ npm run build
 
 ## TODO
 
-* [Make background\-page visible in Google Chrome extension \- Stack Overflow](https://stackoverflow.com/questions/9658418/make-background-page-visible-in-google-chrome-extension)
+* [x] [Make background\-page visible in Google Chrome extension \- Stack Overflow](https://stackoverflow.com/questions/9658418/make-background-page-visible-in-google-chrome-extension)
