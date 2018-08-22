@@ -7,15 +7,26 @@
     $t.attr('data-src', s2)
     $t.attr('src', s1)
   }
+  window.__icac.popupWindow = (target) => {
+    let $t = $(target)
+    let href = $t.attr('data-href')
+    let name = $t.attr('data-name')
+    window.open(href, name, 'resizable,scrollbars')
+  }
 </script>
 <div class="ask-a-question-panel">
   <h4>This page is translated from English</h4>
   <div>
-    <% satisfactionImages.forEach((dict) => { %>
+    <% satisfaction.forEach((dict) => { %>
       <img
-        width="40em;" src="<%= dict.mono %>" data-src="<%= dict.color %>"
+        width="40em;"
+        src="<%= dict.mono %>"
+        data-src="<%= dict.color %>"
+        data-href="<%= dict.href　%>"
+        data-name="<%= app.FORM_TYPES.satisfactionFeedback %>"
         onmouseover="window.__icac.swapImage(this)"
         onmouseout="window.__icac.swapImage(this)"
+        onclick="window.__icac.popupWindow(this)"
       >
     <% }); %>
   </div>
