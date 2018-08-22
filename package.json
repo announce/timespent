@@ -9,20 +9,20 @@
     "lint:css": "csslint src/**/*.css",
     "lint:shell": "docker run --rm -v $PWD:/mnt koalaman/shellcheck:v0.5.0 --exclude=SC1090 script/*.bash",
     "lint:md": "markdownlint README.md",
-    "icon": "npm-run-all icon:**",
+    "image": "npm-run-all image:**",
     "im": "docker run -v $(pwd)/src/crx/image:/app --rm -t acleancoder/imagemagick-full:0.0.2",
-    "icon:16": "npm run im -- convert -size 16x16 -background '#0052CC' -fill white -gravity center label:C /app/icon_16.png",
-    "icon:32": "npm run im -- convert -size 32x32 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_32.png",
-    "icon:48": "npm run im -- convert -size 48x48 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_48.png",
-    "icon:128": "npm run im -- convert -size 128x128 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_128.png",
-    "icon:base64": "node script/convert-image-base64.js > src/crx/image/base64.json",
+    "image:icon:16": "npm run im -- convert -size 16x16 -background '#0052CC' -fill white -gravity center label:C /app/icon_16.png",
+    "image:icon:32": "npm run im -- convert -size 32x32 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_32.png",
+    "image:icon:48": "npm run im -- convert -size 48x48 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_48.png",
+    "image:icon:128": "npm run im -- convert -size 128x128 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_128.png",
+    "image:base64": "node script/convert-image-base64.js > src/crx/image/base64.json",
     "watch": "npm-run-all --parallel watch:**",
     "watch:crx:js": "onchange  --delay 1000 '*.json' 'src/**/*.*js' -- npm-run-all lint:js bundle:crx:js",
     "watch:crx:manifest": "onchange  --delay 1000 'src/crx/manifest.json' -- npm-run-all lint:js bundle:crx:manifest",
     "watch:crx:assets": "onchange  --delay 1000 'src/**/*.{html,css,json}' 'src/**/image' -- npm-run-all lint:css bundle:crx:assets",
     "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm run lint:shell",
     "watch:md": "onchange  --delay 1000 '*.md' -- npm run lint:md",
-    "build": "npm-run-all clean icon bundle compress",
+    "build": "npm-run-all clean image bundle compress",
     "flow": "flow",
     "bundle": "npm-run-all bundle:** ; ./notify $?",
     "bundle:gas": "babel src/gas -d dist/gas",
@@ -31,8 +31,8 @@
     "bundle:crx:js": "find src/crx -type f -name '*.js' -print0 | xargs -0 -L 1 -I{} sh -c 'browserify $1 -o dist/crx/$(basename $1)' - {}",
     "clean": "rm -fr dist/* && mkdir -p dist/crx/image dist/gas/",
     "compress": "zip -r var/$(date +%s).zip dist",
-    "prestart": "[[ -d node_modules ]] || npm install",
-    "start": "export NODE_ENV=development && npm-run-all clean lint bundle watch"
+    "prestart": "npm install",
+    "start": "export NODE_ENV=development && npm-run-all clean image lint bundle watch"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -82,7 +82,8 @@
           "presets": [
             "env",
             "flow"
-          ]
+          ],
+          "plugins": ["transform-object-rest-spread"]
         }
       ]
     ]
