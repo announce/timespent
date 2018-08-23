@@ -18,8 +18,9 @@ npm run build
 
 ## Project Links
 
-* Task tracker: [trello](https://trello.com/b/rgRTwohR)
+* Task tracker: [trello](https://trello.com/c/WGVCIKVj/32-app-implementation)
 * Upstream work: [trunk](https://github.com/announce/icac/compare/master...ymkjp:master)
+* Demo app: [crx](https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github)
 
 ## Documents
 
@@ -30,9 +31,3 @@ npm run build
   * [Apps Script API](https://developers.google.com/apps-script/api/how-tos/execute)
 * ImageMagick
   * [Text Handling \- IM v6](http://www.imagemagick.org/Usage/text/#label_bestfit)
-
-## TODO
-
-* [ ] [Forms \- AUI Documentation](https://docs.atlassian.com/aui/7.9.5/docs/forms.html)
-* [ ] [AUI CDN](http://aui-cdn.atlassian.com/)
-background
