@@ -4,10 +4,9 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <script src="form.js"></script>
   <title>CAC Translation Feedback</title>
 </head>
 <body>
@@ -25,23 +24,20 @@
     Thanks for your feedback!
   </p>
   <hr>
-  <p>Your satisfaction score against the page "..." is</p>
+  <p>Your satisfaction score against the page <b>"<span id="icac-page-title">...</span>"</b> is:</p>
   <div class="row">
     <div class="col-2">
     </div>
     <div class="col-8">
-      <h2><p class="text-center">
-        <!--<div>-->
-          <% satisfaction.forEach((dict) => { %>
-            <img
-              width="80em;"
-              src="<%= dict.mono %>"
-              data-src="<%= dict.color %>"
-              data-href="<%= dict.href %>"
-            >
-          <% }); %>
-        <!--</div>-->
-        </p></h2>
+      <div class="text-center icac-satisfactions">
+        <% satisfaction.forEach((dict) => { %>
+          <img
+            width="40em;"
+            src="<%= dict.mono %>"
+            data-src="<%= dict.color %>"
+          >
+        <% }); %>
+      </div>
     </div>
     <div class="col-2">
     </div>
