@@ -11,8 +11,8 @@ const $ = require('jquery')
  *   &url=https%253A%252F%252Fconfluence.atlassian.com%252Fconf60%252Fproduction-backup-strategy-852732324.html
  *   &score=3
  */
-
 const renderParams = (params) => {
+  const INDEX_PADDING = 6
   const $title = $('#icac-page-title')
   const $satisfactions = $('.icac-satisfactions')
 
@@ -21,10 +21,9 @@ const renderParams = (params) => {
   if (title === null || score === null) {
     return
   }
-  const $image = $satisfactions.find(`img:nth-child(${5 - parseInt(score, 10)})`)
+  const $image = $satisfactions.find(`img:nth-child(${INDEX_PADDING - parseInt(score, 10)})`)
   $title.text(decodeURI(title))
   swapImage($image)
-  // console.log($satisfactions, $image)
 }
 
 const swapImage = ($target) => {
@@ -34,12 +33,34 @@ const swapImage = ($target) => {
   $target.attr('src', s1)
 }
 
+const submission = () => {
+  const $completion = $('#icac-complete')
+  const $message = $('#icac-btn-message')
+  const $loader = $('#icac-loading')
+  const $comment = $('.form-control')
+  $loader.hide()
+  $completion.on('click', (e) => {
+    e.preventDefault()
+    $completion.addClass('disabled').prop('disabled', true)
+    $comment.addClass('disabled').prop('disabled', true)
+    $message.text('Sending...')
+    $loader.fadeIn(100)
+    setTimeout(() => {
+      $loader.fadeOut(100)
+      $completion.text('✅ Completed! Closing the feedback form...')
+    }, 3200)
+  })
+}
+
 $(() => {
-  window.alert(1)
   const url = new URL(window.location.href)
-  console.log(url)
+  // console.log(url)
   renderParams(url.searchParams)
-  // $('.page-sidebars')
-  //   .prepend(createLanguageSwitcherElement())
-  //   .append(createSatisfactionElement())
+  submission()
+
+  $('.close').on('click', (e) => {
+    // console.log(e)
+    // 200 ms
+    $(e.currentTarget).parent().fadeOut(200)
+  })
 })
