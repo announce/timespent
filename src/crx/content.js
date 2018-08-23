@@ -16,7 +16,7 @@ const createLanguageSwitcherElement = () => {
 
 const createSatisfactionElement = () => {
   const title = $('.page-title').text()
-  const url = new URL(chrome.extension.getURL('form.html'))
+  const url = new URL(chrome.extension.getURL('form-satisfaction-feedback.html'))
   url.searchParams.set('uuid', uuid())
   url.searchParams.set('title', encodeURIComponent(title))
   url.searchParams.set('url', encodeURIComponent(window.location.href))

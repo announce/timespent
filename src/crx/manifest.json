@@ -8,7 +8,7 @@
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
-    "form.html",
+    "form-*.html",
     "image/*.png",
     "image/*.json"
   ],

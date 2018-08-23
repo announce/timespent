@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('partial/header.html.ejs', {}); %>
+  <title>CAC Translation Feedback</title>
+</head>
+<body>
+<%- include('partial/navbar.html.ejs', {}); %>
+<div class="container">
+  <%- include('partial/lead.html.ejs', {}); %>
+  <hr>
+  <p>Your satisfaction score for the page <b>"<span id="icac-page-title">...</span>"</b> is:</p>
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+      <div class="text-center icac-satisfactions">
+        <% satisfaction.forEach((dict) => { %>
+          <img
+            width="40em;"
+            src="<%= dict.mono %>"
+            data-src="<%= dict.color %>"
+          >
+        <% }); %>
+      </div>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+
+  <hr>
+  <%- include('partial/translation-contributors.html.ejs', {}); %>
+  <p></p>
+  <%- include('partial/optional-form.html.ejs', {}); %>
+
+  <p></p>
+
+</div>
+</body>
+</html>
