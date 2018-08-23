@@ -5,28 +5,32 @@ const path = require('path')
 const $ = require('jquery')
 const ejs = require('ejs')
 const uuid = require('uuid/v4')
-const satisfaction = require('./image/base64')
+const images = require('./image/base64')
 const app = require('./app')
 
 const createLanguageSwitcherElement = () => {
-  return ejs.render(fs.readFileSync(path.resolve('src/crx/language-switcher.html.ejs'), 'utf-8'), {})
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/language-switcher.html.ejs'), 'utf-8'), {
+    app: app
+  })
 }
 
 const createSatisfactionElement = () => {
+  const title = $('.page-title').text()
   const url = new URL(chrome.extension.getURL('form.html'))
   url.searchParams.set('uuid', uuid())
+  url.searchParams.set('title', encodeURIComponent(title))
   url.searchParams.set('url', encodeURIComponent(window.location.href))
-  const sat = satisfaction.map((value, index) => {
+  const satisfaction = images['satisfaction'].map((value, index) => {
     url.searchParams.set('score', 5 - index)
     return {...{
       href: url.href
     },
     ...value}
   })
-  console.log('satisfaction:', sat)
+  console.log('satisfaction:', satisfaction)
   return ejs.render(fs.readFileSync(path.resolve('src/crx/satisfaction-feedback.html.ejs'), 'utf-8'), {
     app: app,
-    satisfaction: sat
+    satisfaction: satisfaction
   })
 }
 

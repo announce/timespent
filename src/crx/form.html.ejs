@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>CAC Translation Feedback</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-primary">
+  <a class="navbar-brand" href="#">
+    <p class="text-white">CAC Translation Feedback</p>
+  </a>
+</nav>
+<p></p>
+<div class="container">
+  <div class="alert alert-success" role="alert">
+    ✅ Your satisfaction feedback was successfully submitted.
+  </div>
+  <p class="lead text-center">
+    Thanks for your feedback!
+  </p>
+  <hr>
+  <p>Your satisfaction score against the page "..." is</p>
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+      <h2><p class="text-center">
+        <!--<div>-->
+          <% satisfaction.forEach((dict) => { %>
+            <img
+              width="80em;"
+              src="<%= dict.mono %>"
+              data-src="<%= dict.color %>"
+              data-href="<%= dict.href %>"
+            >
+          <% }); %>
+        <!--</div>-->
+        </p></h2>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+
+  <hr>
+  <div class="media">
+    <img class="mr-3 img-thumbnail" src="<%= meeple.mogawa %>" alt="Generic placeholder image">
+    <div class="media-body">
+      <h6 class="mt-0">Manami Ogawa, Localization Manager</h6>
+      The localization manager improves translation based on your feedback.
+    </div>
+  </div>
+  <p></p>
+
+  <form>
+    <div class="card">
+      <div class="card-header">
+        Comment (Optional)
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </form><p></p>
+  <button type="button" class="btn btn-primary btn-lg btn-block">Post your comment and complete the feedback</button>
+</div>
+</body>
+</html>

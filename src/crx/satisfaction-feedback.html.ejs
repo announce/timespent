@@ -8,10 +8,15 @@
     $t.attr('src', s1)
   }
   window.__icac.popupWindow = (target) => {
-    let $t = $(target)
-    let href = $t.attr('data-href')
-    let name = $t.attr('data-name')
-    window.open(href, name, 'resizable,scrollbars')
+    const $t = $(target)
+    const href = $t.attr('data-href')
+    const name = $t.attr('data-name')
+    const width = window.outerWidth * 0.5;
+    const height = window.outerHeight;
+    // @FIXME The satisfaction score should be fixed once chosen
+    // @TODO + Use local storage to show the previous feedback when the customer revisits
+    // @TODO Let the similes say "Thank you"
+    window.open(href, name, `resizable,scrollbars,width=${width},height=${height}`)
   }
 </script>
 <div class="ask-a-question-panel">

@@ -26,5 +26,6 @@
       "js": ["content.js"]
     }
   ],
+  "content_security_policy": "script-src 'self' https://aui-cdn.atlassian.com/ https://ajax.googleapis.com/*; object-src 'self' https://aui-cdn.atlassian.com/*",
   "manifest_version": 2
 }
