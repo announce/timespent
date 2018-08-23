@@ -5,6 +5,7 @@ readonly WORKING_DIR=$(basename "$(pwd)")
 
 if [[ "${OSTYPE}" = "darwin"* ]]; then
   osascript -e "display notification \"${CURRENT_DATE}\" with title \"${*-${WORKING_DIR}}\""
+  printf "\\a"
 fi
 
 echo "[${CURRENT_DATE}] ${*-${WORKING_DIR}}"

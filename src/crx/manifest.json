@@ -8,7 +8,7 @@
     "128": "image/icon_128.png"
   },
   "web_accessible_resources": [
-    "form.html",
+    "form-*.html",
     "image/*.png",
     "image/*.json"
   ],
@@ -26,5 +26,6 @@
       "js": ["content.js"]
     }
   ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "manifest_version": 2
 }
