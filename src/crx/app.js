@@ -2,7 +2,8 @@
 'use strict'
 
 export const FORM_TYPES: Object = {
-  'satisfactionFeedback': 'SatisfactionFeedbackForm'
+  'satisfactionFeedback': 'SatisfactionFeedbackForm',
+  'translationRequest': 'TranslationRequestForm'
 }
 
 export const MEEPLE: Object = {

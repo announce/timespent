@@ -1,0 +1,26 @@
+<script>
+  const $button = $('#icac-translation-request')
+  const href = $button.attr('data-href')
+  $button.on('click', (e) => {
+    const width = window.outerWidth * 0.5;
+    const height = window.outerHeight;
+    e.preventDefault()
+    window.open(href, '<%= app.FORM_TYPES.translationRequest %>', `resizable,scrollbars,width=${width},height=${height}`)
+  })
+</script>
+<style>
+  #icac-translation-request {
+    font-size:1.2em;
+    color: #42526E;
+    border:1em;
+    background: #F4F5F7;
+    line-height: 1.8em;
+  }
+  #icac-translation-request:hover {
+    background: #e5e5e5;
+  }
+</style>
+<form style="padding:0 0 2em;">
+  <h4>Translation Request</h4>
+  <button id="icac-translation-request" data-href="<%= url %>">I want this page translated!</button>
+</form>

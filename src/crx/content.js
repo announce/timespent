@@ -14,6 +14,18 @@ const createLanguageSwitcherElement = () => {
   })
 }
 
+const createTranslationRequestElement = () => {
+  const title = $('.page-title').text()
+  const url = new URL(chrome.extension.getURL('form-translation-request.html'))
+  url.searchParams.set('uuid', uuid())
+  url.searchParams.set('title', encodeURIComponent(title))
+  url.searchParams.set('url', encodeURIComponent(window.location.href))
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/translation-request.html.ejs'), 'utf-8'), {
+    app: app,
+    url: url.href
+  })
+}
+
 const createSatisfactionElement = () => {
   const title = $('.page-title').text()
   const url = new URL(chrome.extension.getURL('form-satisfaction-feedback.html'))
@@ -39,6 +51,7 @@ const createSatisfactionElement = () => {
  */
 $(() => {
   $('.page-sidebars')
+    .prepend(createTranslationRequestElement())
     .prepend(createLanguageSwitcherElement())
     .append(createSatisfactionElement())
 })

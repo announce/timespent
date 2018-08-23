@@ -15,6 +15,7 @@
     <file url="file://$PROJECT_DIR$/src/crx/app.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/content.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/form-satisfaction-feedback.html.ejs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/crx/form-translation-request.html.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/form.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/form.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/form.js" charset="UTF-8" />
@@ -27,6 +28,7 @@
     <file url="file://$PROJECT_DIR$/src/crx/partial/submission-button.html.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/partial/translation-contributors.html.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/satisfaction-feedback.html.ejs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/crx/translation-request.html.ejs" charset="UTF-8" />
     <file url="PROJECT" charset="EUC-JP" />
   </component>
 </project>

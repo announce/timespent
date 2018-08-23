@@ -5,7 +5,7 @@ const $ = require('jquery')
 // const app = require('./app')
 
 /**
- * chrome-extension://eocccnohoihhcbipkodfefjheegahlik/form.html
+ * chrome-extension://eocccnohoihhcbipkodfefjheegahlik/form-{}.html
  *   ?uuid=df30a0e7-7b2a-450a-8dc2-72fe9178abca
  *   &title=Production%2520Backup%2520Strategy
  *   &url=https%253A%252F%252Fconfluence.atlassian.com%252Fconf60%252Fproduction-backup-strategy-852732324.html
@@ -18,12 +18,15 @@ const renderParams = (params) => {
 
   const title = params.get('title')
   const score = params.get('score')
-  if (title === null || score === null) {
-    return
+
+  console.log(title, $title)
+  if (title !== null) {
+    $title.text(decodeURI(title))
   }
-  const $image = $satisfactions.find(`img:nth-child(${INDEX_PADDING - parseInt(score, 10)})`)
-  $title.text(decodeURI(title))
-  swapImage($image)
+  if (score !== null) {
+    const $image = $satisfactions.find(`img:nth-child(${INDEX_PADDING - parseInt(score, 10)})`)
+    swapImage($image)
+  }
 }
 
 const swapImage = ($target) => {
@@ -48,6 +51,9 @@ const submission = () => {
     setTimeout(() => {
       $loader.fadeOut(100)
       $completion.text('✅ Completed! Closing the feedback form...')
+      setTimeout(() => {
+        window.close()
+      }, 1000)
     }, 3200)
   })
 }
