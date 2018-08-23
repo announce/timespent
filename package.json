@@ -19,7 +19,7 @@
     "watch:crx:js": "onchange  --delay 1000 '*.json' 'src/**/*.*js' 'script/**/*.js' -- npm-run-all lint:js bundle:crx:js bundle:crx:ejs notify",
     "watch:crx:manifest": "onchange  --delay 1000 'src/crx/manifest.json' -- npm-run-all lint:js bundle:crx:manifest notify",
     "watch:crx:assets": "onchange  --delay 1000 'src/**/*.{html,css,json}' 'src/**/image' -- npm-run-all lint:css bundle:crx:assets notify",
-    "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm run lint:shell notify",
+    "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm-run-all lint:shell notify",
     "watch:md": "onchange  --delay 1000 '*.md' -- npm run lint:md notify",
     "build": "npm-run-all clean image bundle compress",
     "flow": "flow",

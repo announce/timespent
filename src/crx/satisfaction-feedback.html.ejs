@@ -2,6 +2,9 @@
   window.__icac = window.__icac || {}
   window.__icac.swapImage = (target) => {
     let $t = $(target)
+    if ($t.hasClass('selected')) {
+      return
+    }
     let s1 = $t.attr('data-src')
     let s2 = $t.attr('src')
     $t.attr('data-src', s2)
@@ -13,21 +16,54 @@
     const name = $t.attr('data-name')
     const width = window.outerWidth * 0.5;
     const height = window.outerHeight;
+    const color = $t.attr('data-color')
+    const mono = $t.attr('data-mono')
+    if ($t.hasClass('selected')) {
+      console.log('Unselected!')
+      $t.removeClass('selected')
+      return
+    }
+    console.log('Selected!')
+    $t.addClass('selected')
+    $t.attr('src', color)
+    $t.attr('data-src', mono)
+    const $ss = $t.siblings()
+    $ss.each((index) => {
+      const $s = $($ss[index]).removeClass('selected')
+      const color = $s.attr('data-color')
+      const mono = $s.attr('data-mono')
+      $s.attr('src', mono)
+      $s.attr('data-src', color)
+    })
+
+
+
     // @FIXME The satisfaction score should be fixed once chosen
     // @TODO + Use local storage to show the previous feedback when the customer revisits
     // @TODO Let the similes say "Thank you"
     window.open(href, name, `resizable,scrollbars,width=${width},height=${height}`)
   }
 </script>
+<style>
+  .icac-satisfactions > img {
+    transform: scale(1, 1);
+    transition: all 20ms;
+  }
+  .icac-satisfactions > img.selected {
+    transform: scale(1.2, 1.2);
+  }
+</style>
 <div class="ask-a-question-panel">
   <h4>This page is translated from English</h4>
-  <div>
+  <div class="icac-satisfactions">
     <% satisfaction.forEach((dict) => { %>
       <img
         width="40em;"
         src="<%= dict.mono %>"
         data-src="<%= dict.color %>"
         data-href="<%= dict.href %>"
+        data-mono="<%= dict.mono %>"
+        data-color="<%= dict.color %>"
         data-name="<%= app.FORM_TYPES.satisfactionFeedback %>"
         onmouseover="window.__icac.swapImage(this)"
         onmouseout="window.__icac.swapImage(this)"
