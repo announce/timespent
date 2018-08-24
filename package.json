@@ -16,7 +16,7 @@
     "image:icon:48": "npm run im -- convert -size 48x48 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_48.png",
     "image:icon:128": "npm run im -- convert -size 128x128 -background '#0052CC' -fill white -gravity center label:iCAC /app/icon_128.png",
     "watch": "npm-run-all --parallel watch:**",
-    "watch:crx:js": "onchange  --delay 1000 '*.json' 'src/**/*.*js' 'script/**/*.js' -- npm-run-all lint:js bundle:crx:js bundle:crx:ejs notify",
+    "watch:crx:js": "onchange  --delay 100 '*.json' 'src/**/*.*js' 'script/**/*.js' -- npm-run-all lint:js bundle:crx:js bundle:crx:ejs notify",
     "watch:crx:manifest": "onchange  --delay 1000 'src/crx/manifest.json' -- npm-run-all lint:js bundle:crx:manifest notify",
     "watch:crx:assets": "onchange  --delay 1000 'src/**/*.{html,css,json}' 'src/**/image' -- npm-run-all lint:css bundle:crx:assets notify",
     "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm-run-all lint:shell notify",
