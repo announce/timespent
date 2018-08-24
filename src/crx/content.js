@@ -9,7 +9,7 @@ const images = require('./image/base64')
 const app = require('./app')
 
 const createLanguageSwitcherElement = () => {
-  return ejs.render(fs.readFileSync(path.resolve('src/crx/language-switcher.html.ejs'), 'utf-8'), {
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/content-language-switcher.html.ejs'), 'utf-8'), {
     app: app
   })
 }
@@ -20,9 +20,15 @@ const createTranslationRequestElement = () => {
   url.searchParams.set('uuid', uuid())
   url.searchParams.set('title', encodeURIComponent(title))
   url.searchParams.set('url', encodeURIComponent(window.location.href))
-  return ejs.render(fs.readFileSync(path.resolve('src/crx/translation-request.html.ejs'), 'utf-8'), {
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/content-translation-request.html.ejs'), 'utf-8'), {
     app: app,
     url: url.href
+  })
+}
+
+const createTranslationContributorsElement = () => {
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/content-translation-contributors.html.ejs'), 'utf-8'), {
+    app: app
   })
 }
 
@@ -39,8 +45,8 @@ const createSatisfactionElement = () => {
     },
     ...value}
   })
-  console.log('satisfaction:', satisfaction)
-  return ejs.render(fs.readFileSync(path.resolve('src/crx/satisfaction-feedback.html.ejs'), 'utf-8'), {
+  // console.log('satisfaction:', satisfaction)
+  return ejs.render(fs.readFileSync(path.resolve('src/crx/content-satisfaction-feedback.html.ejs'), 'utf-8'), {
     app: app,
     satisfaction: satisfaction
   })
@@ -53,5 +59,6 @@ $(() => {
   $('.page-sidebars')
     .prepend(createTranslationRequestElement())
     .prepend(createLanguageSwitcherElement())
+    .append(createTranslationContributorsElement())
     .append(createSatisfactionElement())
 })

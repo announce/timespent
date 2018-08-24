@@ -7,6 +7,6 @@ export const FORM_TYPES: Object = {
 }
 
 export const MEEPLE: Object = {
-  mogawa: chrome.extension.getURL('images/neko.jpg'),
-  ahirama: chrome.extension.getURL('images/neko.jpg')
+  mogawa: chrome.extension.getURL('image/Meeples-Vania.png'),
+  ahirama: chrome.extension.getURL('image/Meeples-Angie.png')
 }

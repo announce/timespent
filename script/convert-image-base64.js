@@ -1,4 +1,3 @@
-// const path = require('path')
 const base64Img = require('base64-img')
 
 const satisfaction = [...Array(5).keys()].map((index) => {
@@ -9,8 +8,9 @@ const satisfaction = [...Array(5).keys()].map((index) => {
 })
 
 const meeple = {
-  mogawa: base64Img.base64Sync(`src/crx/image/neko.jpg`),
-  ahirama: base64Img.base64Sync(`src/crx/image/neko.jpg`)
+  mogawa: base64Img.base64Sync(`src/crx/image/Meeples-Vania.png`),
+  ahirama: base64Img.base64Sync(`src/crx/image/Meeples-Angie.png`),
+  cat: base64Img.base64Sync(`src/crx/image/neko.jpg`)
 }
 
 console.log(JSON.stringify({
