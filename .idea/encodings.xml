@@ -20,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/src/crx/form-translation-request.html.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/form.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/manifest.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/crx/partial/optional-form.html.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/crx/partial/translation-contributors.html.ejs" charset="UTF-8" />
     <file url="PROJECT" charset="EUC-JP" />
   </component>

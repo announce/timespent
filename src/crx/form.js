@@ -2,7 +2,7 @@
 'use strict'
 
 const $ = require('jquery')
-// const app = require('./app')
+const firebase = require('firebase')
 
 /**
  * chrome-extension://eocccnohoihhcbipkodfefjheegahlik/form-{}.html
@@ -11,7 +11,7 @@ const $ = require('jquery')
  *   &url=https%253A%252F%252Fconfluence.atlassian.com%252Fconf60%252Fproduction-backup-strategy-852732324.html
  *   &score=3
  */
-const renderParams = (params) => {
+const renderParams = (params: URLSearchParams) => {
   const INDEX_PADDING = 6
   const $title = $('#icac-page-title')
   const $satisfactions = $('.icac-satisfactions')
@@ -19,7 +19,7 @@ const renderParams = (params) => {
   const title = params.get('title')
   const score = params.get('score')
 
-  console.log(title, $title)
+  // console.log(title, $title)
   if (title !== null) {
     $title.text(decodeURI(title))
   }
@@ -36,7 +36,36 @@ const swapImage = ($target) => {
   $target.attr('src', s1)
 }
 
-const submission = () => {
+const post = (url, callback) => {
+  const params = url.searchParams
+  const uuid: string = params.get('uuid') || ''
+  const href: string = params.get('url') || ''
+  const score: number = parseInt(params.get('score')) || -1
+  const now = new Date()
+  const comment: string = $('#icac-comment').val() || ''
+  // @FIXME Inject the params
+  const app = firebase.initializeApp({
+    apiKey: '',
+    authDomain: 'test-b574f.firebaseapp.com',
+    databaseURL: 'https://test-b574f.firebaseio.com',
+    projectId: 'test-b574f',
+    storageBucket: '',
+    messagingSenderId: `${uuid}`
+  })
+  const messagesRef = app.database().ref().child('messages')
+  const result = messagesRef.push({
+    id: uuid,
+    form: window.name,
+    url: href,
+    comment: comment.slice(0, 500),
+    score: score,
+    created_at: now.toISOString(),
+    updated_at: now.toISOString()
+  })
+  return callback(result)
+}
+
+const submission = (url: URL) => {
   const $completion = $('#icac-complete')
   const $message = $('#icac-btn-message')
   const $loader = $('#icac-loading')
@@ -48,13 +77,14 @@ const submission = () => {
     $comment.addClass('disabled').prop('disabled', true)
     $message.text('Sending...')
     $loader.fadeIn(100)
-    setTimeout(() => {
+    post(url, (result) => {
+      console.log('submission result:', result)
       $loader.fadeOut(100)
-      $completion.text('✅ Completed! Closing the feedback form...')
+      $completion.text('✅ Completed! Closing the feedback form in a second...')
       setTimeout(() => {
         window.close()
       }, 1000)
-    }, 3200)
+    })
   })
 }
 
@@ -62,7 +92,7 @@ $(() => {
   const url = new URL(window.location.href)
   // console.log(url)
   renderParams(url.searchParams)
-  submission()
+  submission(url)
 
   $('.close').on('click', (e) => {
     // console.log(e)
