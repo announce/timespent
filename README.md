@@ -21,6 +21,7 @@ npm run build
 * Task tracker: [trello](https://trello.com/c/WGVCIKVj/32-app-implementation)
 * Upstream work: [trunk](https://github.com/announce/icac/compare/master...ymkjp:master)
 * Demo app: [crx](https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github)
+* Release: [Chrome Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard)
 
 ## Documents
 
