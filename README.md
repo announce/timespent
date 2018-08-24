@@ -7,13 +7,15 @@
 Run the command below:
 
 ```bash
+npm config set FIREBASE_API_KEY "__YOUR_KEY_HER__"
 npm start
 ```
 
 For the release:
 
 ```bash
-FIREBASE_API_KEY="__YOUR_KEY_HER__" npm run build
+npm config set FIREBASE_API_KEY "__YOUR_KEY_HER__"
+npm run build
 ```
 
 Then you will get the crx zipfile in `./var`.
@@ -30,7 +32,5 @@ Then you will get the crx zipfile in `./var`.
 * CRX
   * [Declare Permissions](https://developer.chrome.com/extensions/declare_permissions)
   * [chrome\.i18n](https://developer.chrome.com/extensions/i18n)
-* GAS
-  * [Apps Script API](https://developers.google.com/apps-script/api/how-tos/execute)
 * ImageMagick
   * [Text Handling \- IM v6](http://www.imagemagick.org/Usage/text/#label_bestfit)

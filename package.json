@@ -27,16 +27,16 @@
     "bundle": "npm-run-all bundle:** ; ./notify $?",
     "bundle:gas": "babel src/gas -d dist/gas",
     "bundle:crx:manifest": "node script/manifest.json.js > dist/crx/manifest.json",
-    "bundle:crx:secret": "cross-env-shell \"node script/inject-secrets.js > dist/crx/config/secrets.json\"",
+    "bundle:crx:secret": "node script/inject-secrets.js > dist/crx/config/secrets.json",
     "bundle:crx:base64": "node script/convert-image-base64.js > src/crx/image/base64.json",
     "bundle:crx:assets": "rsync -aP --include='*/' --include='*.png' --include='*.html' --include='*.css' --exclude='*' src/crx/ dist/crx",
     "bundle:crx:js": "find src/crx -type f -name '*.js' -print0 | xargs -0 -L 1 -I{} sh -c 'browserify $1 -o dist/crx/$(basename $1)' - {}",
     "bundle:crx:ejs": "ejs-cli --base-dir src/crx \"form*.html.ejs\" --out dist/crx --options src/crx/image/base64.json",
-    "secret:dummy": "cross-env FIREBASE_API_KEY=\"${FIREBASE_API_KEY:-development}\"",
+    "secret:dummy": "FIREBASE_API_KEY=\"${FIREBASE_API_KEY:-development}\"",
     "clean": "rm -fr dist/* && mkdir -p dist/crx/image dist/crx/config dist/gas/",
     "compress": "zip -r var/$(date +%s).zip dist/crx",
     "prestart": "npm install",
-    "start": "cross-env NODE_ENV=development npm-run-all clean lint secret:dummy bundle watch"
+    "start": "npm-run-all clean lint secret:dummy bundle watch"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -49,7 +49,6 @@
     "base64-img": "^1.0.4",
     "brfs": "^2.0.0",
     "browserify": "^16.2.2",
-    "cross-env": "^5.2.0",
     "csslint": "^1.0.5",
     "ejs": "^2.6.1",
     "ejs-cli": "^2.0.1",
