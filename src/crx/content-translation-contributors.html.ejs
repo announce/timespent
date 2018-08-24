@@ -1,28 +1,42 @@
 <style>
   .translation-contributors {
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 1rem;
+  }
+  .row {
+    padding: .4rem 0 .4rem;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+  }
+  .card-body {
+    width: 120rem;
   }
   .card-img-top {
-    padding: 1rem 2rem 1rem 0;
+    padding: 0 .5rem;
   }
 </style>
 <div class="translation-contributors">
   <h4>Translation Contributors</h4>
   <div class="row">
     <div class="card">
-      <img class="card-img-top" src="<%= app.MEEPLE.mogawa %>" alt="Photo">
+      <div class="card-img-top" >
+        <img class="card-img-src" src="<%= app.MEEPLE.mogawa %>" alt="Photo">
+      </div>
       <div class="card-body">
-        <h6 class="card-title">Manami Ogawa, Localization Manager</h6>
-        <p class="card-text">Hi, I'm in charge of Atlassian's localization. We are working on translation improvement with enthusiasm.</p>
+        <h6 class="card-title">Localization Manager</h6>
+        <span>Manami Ogawa</span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="card">
-      <img class="card-img-top" src="<%= app.MEEPLE.ahirama %>" alt="Photo">
+      <div class="card-img-top" >
+        <img class="card-img-src" src="<%= app.MEEPLE.ahirama %>" alt="Photo">
+      </div>
       <div class="card-body">
-        <h6 class="card-title">Ai Hirama, Localization Manager</h6>
-        <p class="card-text">We improve translation quality based on your feedback.</p>
+        <h6 class="card-title">Localization Manager</h6>
+        <span>Ai Hirama</span>
       </div>
     </div>
   </div>
