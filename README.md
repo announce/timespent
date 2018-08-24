@@ -13,8 +13,10 @@ npm start
 For the release:
 
 ```bash
-npm run build
+FIREBASE_API_KEY="__YOUR_KEY_HER__" npm run build
 ```
+
+Then you will get the crx zipfile in `./var`.
 
 ## Project Links
 
