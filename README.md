@@ -14,14 +14,14 @@
 Run the command below:
 
 ```bash
-yarn start
+./icac start
 ```
 
 For the release:
 
 ```bash
 export FIREBASE_API_KEY="__YOURS_HERE__"
-yarn run build
+./icac release
 ```
 
 Then you will get the crx zipfile in `./var`.
