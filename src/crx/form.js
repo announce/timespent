@@ -1,9 +1,8 @@
 // @flow
 'use strict'
-
 const $ = require('jquery')
 const firebase = require('firebase')
-const secrets = require('./config/secrets')
+const secret = require('../../config/__secret')
 
 /**
  * chrome-extension://eocccnohoihhcbipkodfefjheegahlik/form-{}.html
@@ -38,38 +37,30 @@ const swapImage = ($target) => {
 }
 
 const post = (url, callback) => {
-  console.log({
-    ...secrets,
+  const params = url.searchParams
+  const uuid: string = params.get('uuid') || ''
+  const href: string = params.get('url') || ''
+  const score: number = parseInt(params.get('score')) || -1
+  const now = new Date()
+  const comment: string = $('#icac-comment').val() || ''
+  const app = firebase.initializeApp({
+    ...secret.firebase,
     ...{
-      storageBucket: `${url.href}`,
-      messagingSenderId: `Cia CCC`
+      storageBucket: '',
+      messagingSenderId: `icac:${uuid}`
     }
   })
-  window.alert('posting...')
-  return callback(firebase)
-  // const params = url.searchParams
-  // const uuid: string = params.get('uuid') || ''
-  // const href: string = params.get('url') || ''
-  // const score: number = parseInt(params.get('score')) || -1
-  // const now = new Date()
-  // const comment: string = $('#icac-comment').val() || ''
-  // // @FIXME Inject the params
-  // const app = firebase.initializeApp(...secrets, ...{
-  //   storageBucket: '',
-  //   messagingSenderId: `icac:${uuid}`
-  // })
-  // const messagesRef = app.database().ref().child('messages')
-  // const result = {messagesRef: messagesRef}
-  // const result = messagesRef.push({
-  //   id: uuid,
-  //   form: window.name,
-  //   url: href,
-  //   comment: comment.slice(0, 500),
-  //   score: score,
-  //   created_at: now.toISOString(),
-  //   updated_at: now.toISOString()
-  // })
-  // return callback(result)
+  const messagesRef = app.database().ref().child('messages')
+  const result = messagesRef.push({
+    id: uuid,
+    form: window.name,
+    url: href,
+    comment: comment.slice(0, 500),
+    score: score,
+    created_at: now.toISOString(),
+    updated_at: now.toISOString()
+  })
+  return callback(result)
 }
 
 const submission = (url: URL) => {
