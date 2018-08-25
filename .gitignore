@@ -1,4 +1,5 @@
 # Bundle product
+config/__*
 dist/*
 !dist/.gitkeep
 tmp/*
