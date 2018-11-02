@@ -1,6 +1,6 @@
-# icac
+# timespent
 
-[![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)
+[![Build Status](https://travis-ci.org/announce/timespent.svg?branch=master)](https://travis-ci.org/announce/timespent)
 
 ## Prerequisite
 
@@ -14,14 +14,14 @@
 Run the command below:
 
 ```bash
-./icac start
+./pj start
 ```
 
 For the release:
 
 ```bash
 export FIREBASE_API_KEY="__YOURS_HERE__"
-./icac release
+./pj release
 ```
 
 Then you will get the crx zipfile in `./var`.
@@ -29,8 +29,8 @@ Then you will get the crx zipfile in `./var`.
 ## Project Links
 
 * Task tracker: [trello](https://trello.com/c/WGVCIKVj/32-app-implementation)
-* Upstream work: [trunk](https://github.com/announce/icac/compare/master...ymkjp:master)
-* Demo app: [crx](https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github)
+* Upstream work: [trunk](https://github.com/announce/timespent/compare/master...ymkjp:master)
+* Demo app: [crx](https://chrome.google.com/webstore/detail/timespent/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github)
 * Release: [Chrome Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard)
 
 ## Documents

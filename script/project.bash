@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-icac () {
+project () {
   set -u
 
   start () {
@@ -37,4 +37,4 @@ icac () {
   fi
 }
 
-icac "$@"
+project "$@"

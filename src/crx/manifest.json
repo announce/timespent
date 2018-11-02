@@ -1,7 +1,7 @@
 {
-  "name": "iCAC",
+  "name": "Timespent",
   "version": "",
-  "description": "A Chrome Extension for CAC i18n.",
+  "description": "A Chrome Extension for GSAC",
   "icons": {
     "16": "image/icon_16.png",
     "48": "image/icon_48.png",
@@ -13,7 +13,7 @@
     "image/*.json"
   ],
   "permissions": [
-    "https://*.confluence.atlassian.com/*",
+    "https://*.atlassian.com/*",
     "contextMenus",
     "clipboardWrite",
     "notifications",
