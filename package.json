@@ -1,6 +1,6 @@
 {
   "name": "timespent",
-  "version": "1.2.0",
+  "version": "0.1.0",
   "description": "[![Build Status](https://travis-ci.org/announce/timespent.svg?branch=master)](https://travis-ci.org/announce/timespent)",
   "scripts": {
     "test": "npm-run-all clean lint bundle",
@@ -11,7 +11,7 @@
     "lint:md": "markdownlint README.md",
     "image": "npm-run-all image:**",
     "im": "docker run -v $(pwd)/src/crx/image:/app --rm -t acleancoder/imagemagick-full:0.0.2",
-    "image:icon:16": "npm run im -- convert -size 16x16 -background '#0052CC' -fill white -gravity center label:C /app/icon_16.png",
+    "image:icon:16": "npm run im -- convert -size 16x16 -background '#0052CC' -fill white -gravity center label:TS /app/icon_16.png",
     "image:icon:32": "npm run im -- convert -size 32x32 -background '#0052CC' -fill white -gravity center label:timespent /app/icon_32.png",
     "image:icon:48": "npm run im -- convert -size 48x48 -background '#0052CC' -fill white -gravity center label:timespent /app/icon_48.png",
     "image:icon:128": "npm run im -- convert -size 128x128 -background '#0052CC' -fill white -gravity center label:timespent /app/icon_128.png",
@@ -68,12 +68,6 @@
       "flowtype"
     ],
     "globals": [
-      "ScriptApp",
-      "Logger",
-      "Utilities",
-      "UrlFetchApp",
-      "MailApp",
-      "GmailApp",
       "chrome"
     ]
   },
@@ -97,12 +91,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/announce/q11e.git"
+    "url": "git+ssh://git@github.com/announce/timespent.git"
   },
-  "author": "Kenta Yamamoto <ymkjp@jaist.ac.jp>",
+  "author": "Kenta Yamamoto <kyamamoto@atlassian.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/announce/q11e/issues"
+    "url": "https://github.com/announce/timespent/issues"
   },
-  "homepage": "https://github.com/announce/q11e#readme"
+  "homepage": "https://github.com/announce/timespent#readme"
 }

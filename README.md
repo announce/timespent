@@ -20,7 +20,6 @@ Run the command below:
 For the release:
 
 ```bash
-export FIREBASE_API_KEY="__YOURS_HERE__"
 ./pj release
 ```
 
@@ -40,3 +39,10 @@ Then you will get the crx zipfile in `./var`.
   * [chrome\.i18n](https://developer.chrome.com/extensions/i18n)
 * ImageMagick
   * [Text Handling \- IM v6](http://www.imagemagick.org/Usage/text/#label_bestfit)
+
+## WIP
+
+```html
+<input class="text short-field" id="log-work-time-logged" name="worklog_timeLogged" type="text" value="">
+```
+
